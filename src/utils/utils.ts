@@ -9,24 +9,14 @@ import { isEmpty } from 'lodash';
 const t = i18n.t;
 
 export async function getHeaders(): Promise<Record<string, string>> {
-  let userData = await getItem('userData');
-  if (userData) {
+  let value = await getItem('token');
+  if (value) {
     return {
-      Authorization: `Bearer ${userData?.token}`,
+      Authorization: `Bearer ${value}`,
     };
   }
   return {};
 }
-
-// export async function getHeaders(): Promise<Record<string, string>> {
-//   let value = await getItem('token');
-//   if (value) {
-//     return {
-//       Authorization: `Bearer ${value}`,
-//     };
-//   }
-//   return {};
-// }
 
 export function setItem(key: string, data: object | any): Promise<void> {
   data = JSON.stringify(data);
