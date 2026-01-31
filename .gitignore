@@ -76,6 +76,4 @@ yarn-error.log
 
 
 # Ignore .env files
-.env
-env.*
 .yarn
